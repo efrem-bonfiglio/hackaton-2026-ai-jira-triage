@@ -1,6 +1,5 @@
 ---
 theme: default
-background: /assets/cover.png
 class: text-center
 highlighter: shiki
 drawings:
