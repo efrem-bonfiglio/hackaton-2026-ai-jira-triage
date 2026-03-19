@@ -40,27 +40,17 @@ function Step({ step }) {
         maxWidth: 90,
         height: 64,
         borderRadius: 8,
-        padding: highlight ? 2 : 0,
-        background: highlight
-          ? "conic-gradient(from var(--angle, 0deg), #a855f7, #7747FF, #c084fc, #7747FF, #a855f7)"
-          : "transparent",
-        animation: highlight ? "pipeline-spin 2s linear infinite" : "none",
-        transform: highlight ? "scale(1.1)" : "scale(1)",
-        position: "relative",
-        zIndex: highlight ? 2 : 1,
-        boxShadow: highlight ? "0 0 18px rgba(119,71,255,0.5)" : "none",
-      }}>
-      <div style={{
-        width: "100%",
-        height: "100%",
-        borderRadius: 6,
-        border: highlight ? "none" : `2px solid ${purpleFaint}`,
+        border: `2px solid ${highlight ? purple : purpleFaint}`,
         background: highlight ? purple : purpleBg,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         gap: 3,
+        transform: highlight ? "scale(1.1)" : "scale(1)",
+        position: "relative",
+        zIndex: highlight ? 2 : 1,
+        boxShadow: highlight ? "0 0 18px rgba(119,71,255,0.5)" : "none",
       }}>
         <span style={{ fontSize: 9, color: highlight ? "rgba(255,255,255,0.6)" : "#9ca3af", fontWeight: 600 }}>{step.id}</span>
         <div style={{ textAlign: "center", lineHeight: 1.3 }}>
@@ -68,7 +58,14 @@ function Step({ step }) {
             <div key={i} style={{ fontSize: 10, fontWeight: 700, color: highlight ? "#fff" : "#5b21b6" }}>{l}</div>
           ))}
         </div>
-      </div>
+        {highlight && (
+          <span style={{
+            position: "absolute", inset: -8, borderRadius: 14,
+            border: "2px solid rgba(119,71,255,0.35)",
+            animation: "pring 1.5s ease-in-out infinite",
+            pointerEvents: "none",
+          }} />
+        )}
       </div>
 
       {/* Down arrow */}
@@ -128,13 +125,9 @@ export default function PipelineAnimation() {
       </div>
 
       <style>{`
-        @property --angle {
-          syntax: '<angle>';
-          initial-value: 0deg;
-          inherits: false;
-        }
-        @keyframes pipeline-spin {
-          to { --angle: 360deg; }
+        @keyframes pring {
+          0%, 100% { opacity: 0.4; transform: scale(1); }
+          50%       { opacity: 0.85; transform: scale(1.05); }
         }
       `}</style>
 

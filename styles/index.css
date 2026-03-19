@@ -1,0 +1,41 @@
+/* Apply befree background image to every slide except the cover (slide 1) */
+.slidev-layout:not(.cover) {
+  background-image: url('/assets/befree-background-image.png') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.slidev-layout.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+.slidev-layout.cover h1,
+.slidev-layout.cover h3 {
+  position: relative;
+  z-index: 1;
+}
+
+.slidev-page:not(.slidev-page-1) .slidev-layout::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  width: 80px;
+  height: 32px;
+  background-image: url('/assets/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.slidev-page:not(.slidev-page-1) .slidev-layout h1 {
+  color: #7747ff;
+}
+

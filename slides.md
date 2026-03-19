@@ -1,6 +1,6 @@
 ---
 theme: default
-background: ./cover.png
+background: ./assets/cover.png
 class: text-center
 highlighter: shiki
 drawings:
@@ -17,22 +17,6 @@ addons:
 # AI-Powered Bug Triage
 
 ### To speed up issue understanding and resolution
-
-<style>
-.slidev-layout.cover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
-  pointer-events: none;
-}
-.slidev-layout.cover h1,
-.slidev-layout.cover h3 {
-  position: relative;
-  z-index: 1;
-}
-</style>
 
 <div class="abs-br m-6 flex gap-2">
   <span class="text-sm opacity-50">Hackathon 2026</span>
@@ -84,7 +68,6 @@ This project is actually part of a bigger initiative called Mirko by Matt, Rober
 -->
 
 ---
-transition: fade-out
 layoutClass: gap-16
 ---
 
@@ -119,7 +102,7 @@ When a customer reports a bug, the description often doesn't clearly indicate wh
 
 That takes time.
 
-After the ticket lands in the backlog and gets picked up by a different developer, this analysis is often repeated from scratch because the triage work is not always written in the ticket. Context is lost, time is wasted.
+After the ticket lands in the backlog and gets picked up by a different developer, the analysis is often repeated from scratch because the triage work is not always written in the ticket. Context is lost, time is wasted.
 -->
 
 ---
@@ -147,7 +130,7 @@ class: text-center
 </div>
 
 <div class="p-4 bg-orange-50 rounded-lg dark:bg-orange-900/20">
-  <h3>🤝 Customer support ↔ Engineering</h3>
+  <h3>🤝 Customer support ↔ Devs</h3>
   <p class="text-sm opacity-75">Smoother collaboration between teams</p>
 </div>
 
@@ -228,30 +211,17 @@ Matches ticket content to the right project using **infrastructure documentation
 
 <div>
 
-### How it works
+### Output example
 
-<v-clicks>
-
-1. Reads the **Router** document first
-2. Uses routing rules to narrow down candidates
-3. Reads relevant **project docs**
-4. Returns matches with **confidence scores**
-
-</v-clicks>
-
-<div v-click class="mt-4 p-3 bg-yellow-50 rounded dark:bg-yellow-900/20 text-sm">
-
-💡 Only repositories above the **confidence threshold** (default 90%) are included in results
-
-</div>
+<React is="TypewriterOutput" />
 
 </div>
 
 <div>
 
-### Output example
+### How it works
 
-<React is="TypewriterOutput" />
+Uses the **knowledge base** to identify the most relevant projects — returning matches with **confidence scores**.
 
 </div>
 
@@ -261,8 +231,7 @@ Matches ticket content to the right project using **infrastructure documentation
 The second specialized agent is the Infrastructure Reader. This is the heart of the system.
 
 It's job is to find the most relevant projects a bug belongs to.
-
-CUT
+It uses the knowledge base.
 -->
 
 ---
@@ -293,7 +262,7 @@ Maps **symptoms → projects**:
 <div class="p-4 border-2 border-blue-400 rounded-xl text-sm">
 
 ### 📄 Project Docs
-*One file per repository.*
+*One file per project.*
 
 Each doc describes:
 
@@ -384,16 +353,6 @@ class: text-center
 
 *Live demonstration of the triage flow*
 
-<!--
-At this point I'll show you a quick demo of the system in action.
-
-[RUN THE DEMO HERE - show the flow:
-1. Open the web UI with `adk web src/jira_ai_triage`
-2. Paste a Jira ticket URL
-3. Show how the system fetches the ticket, analyzes it, and identifies repositories
-4. Show the result written to the AI Triage field in Jira]
--->
-
 ---
 layout: center
 class: text-center
@@ -431,7 +390,3 @@ AI-Powered Bug Triage — Hackathon 2026
     <span class="text-xs opacity-60">Marcello Garini</span>
   </div>
 </div>
-
-<!--
-Me
--->
