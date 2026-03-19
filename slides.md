@@ -1,6 +1,6 @@
 ---
 theme: default
-background: /cover.png
+background: ./cover.png
 class: text-center
 highlighter: shiki
 drawings:
@@ -433,7 +433,5 @@ AI-Powered Bug Triage — Hackathon 2026
 </div>
 
 <!--
-Mention Mirko
-
-Matt, Pomo, Loris are working
+Me
 -->
