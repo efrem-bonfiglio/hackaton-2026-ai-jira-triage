@@ -230,8 +230,7 @@ Uses the **knowledge base** to identify the most relevant projects — returning
 <!--
 The second specialized agent is the Infrastructure Reader. This is the heart of the system.
 
-It's job is to find the most relevant projects a bug belongs to.
-It uses the knowledge base.
+It's job is to find the most relevant projects a bug belongs to using his the knowledge base.
 -->
 
 ---
@@ -281,7 +280,7 @@ Each doc describes:
 </div>
 
 <!--
-The Knowledge Base is made up of Markdown files built from two sources: repository code analysis and already resolved Jira tickets
+The Knowledge Base we created is built from two sources: repository code analysis and already resolved Jira tickets
 
 The Router is the routing map: it acts as guard to exclude projects
 
@@ -326,7 +325,7 @@ layout: default
 2. Fetches all tickets via Jira API
 3. Analyzes patterns across tickets
 4. Extracts common issues & routing signals
-5. **Enriches repository documentation**
+5. **Enriches knowledge base**
 
 </div>
 
@@ -339,7 +338,7 @@ The system has two operating modes.
 
 Analysis mode is the primary one: it receives a Jira ticket URL, analyzes it, and writes the result directly to the ticket in a custom "AI Triage" field.
 
-Learning mode: it takes a batch of already-resolved tickets, analyzes and automatically enriches the repository documentation. This means the system gets smarter over time. The more tickets we process in learning mode, the more accurate future analyses become.
+Learning mode: it takes a batch of already-resolved tickets, analyzes and automatically enriches the knowledge base. This means the system gets smarter over time. The more tickets we process in learning mode, the more accurate future analyses become.
 -->
 
 ---
