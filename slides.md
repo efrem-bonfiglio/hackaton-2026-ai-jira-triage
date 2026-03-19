@@ -237,61 +237,6 @@ It's job is to find the most relevant projects a bug belongs to using his the kn
 layout: default
 ---
 
-# The Knowledge Base 📄
-
-The AI's domain knowledge lives in **two types of Markdown documents**.
-
-<div class="grid grid-cols-2 gap-4 mt-4">
-
-<div class="p-4 border-2 border-purple-400 rounded-xl text-sm">
-
-### 📍 Router Doc
-*One file — acts as a routing map.*
-
-Maps **symptoms → projects**:
-
-- drag and drop, sidebar → **sdk-frontend**
-- login failures → **bee-auth**
-- HTML rendering → **beefree-multiparser**
-- one entry for **every repository**
-
-
-</div>
-
-<div class="p-4 border-2 border-blue-400 rounded-xl text-sm">
-
-### 📄 Project Docs
-*One file per project.*
-
-Each doc describes:
-
-- **Responsibilities** — what the project owns
-- **Typical Issues** — common failure patterns
-- **Routing Signals** — key phrases and symptoms
-
-</div>
-
-</div>
-
-<div class="mt-3 p-3 bg-purple-50 rounded dark:bg-purple-900/20 text-sm text-center">
-
-💡 The AI reads the Router first to narrow candidates, then the matching Project Docs to score confidence.
-
-</div>
-
-<!--
-The Knowledge Base we created is built from two sources: repository code analysis and already resolved Jira tickets
-
-The Router is the routing map: it acts as guard to exclude projects
-
-Individual project documents, describing responsibilities, common issues, and routing signals.
-
-This approach is powerful: the documentation is composed from real code and real tickets — not written by hand from scratch. And the AI uses it at runtime to make informed decisions, without any model training.
--->
-
----
-layout: default
----
 
 # Two Modes of Operation
 
@@ -351,6 +296,62 @@ class: text-center
 <div class="text-6xl mt-8 mb-4">🎬</div>
 
 *Live demonstration of the triage flow*
+
+---
+layout: default
+---
+
+# The Knowledge Base 📄
+
+The AI's domain knowledge lives in **two types of Markdown documents**.
+
+<div class="grid grid-cols-2 gap-4 mt-4">
+
+<div class="p-4 border-2 border-purple-400 rounded-xl text-sm">
+
+### 📍 Router Doc
+*One file — acts as a routing map.*
+
+Maps **symptoms → projects**:
+
+- drag and drop, sidebar → **sdk-frontend**
+- login failures → **bee-auth**
+- HTML rendering → **beefree-multiparser**
+- one entry for **every repository**
+
+
+</div>
+
+<div class="p-4 border-2 border-blue-400 rounded-xl text-sm">
+
+### 📄 Project Docs
+*One file per project.*
+
+Each doc describes:
+
+- **Responsibilities** — what the project owns
+- **Typical Issues** — common failure patterns
+- **Routing Signals** — key phrases and symptoms
+
+</div>
+
+</div>
+
+<div class="mt-3 p-3 bg-purple-50 rounded dark:bg-purple-900/20 text-sm text-center">
+
+💡 The AI reads the Router first to narrow candidates, then the matching Project Docs to score confidence.
+
+</div>
+
+<!--
+The Knowledge Base we created is built from two sources: repository code analysis and already resolved Jira tickets
+
+The Router is the routing map: it acts as guard to exclude projects
+
+Individual project documents, describing responsibilities, common issues, and routing signals.
+
+This approach is powerful: the documentation is composed from real code and real tickets — not written by hand from scratch. And the AI uses it at runtime to make informed decisions, without any model training.
+-->
 
 ---
 layout: center
